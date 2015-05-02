@@ -40,6 +40,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         
     }
    
+  
     func previousImage() {
         if (currentIndex > 0) {
             currentIndex--
@@ -49,6 +50,9 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         }
     }
     
+    @IBAction func didDoubleTap(sender: UITapGestureRecognizer) {
+        addToFavorites()
+    }
     
     @IBAction func randomImage(sender: AnyObject) {
         currentIndex = random() % images.count
@@ -57,7 +61,12 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         webView.loadRequest(request)
     }
     
-    func addToFavorites(sender: AnyObject) {
+    func addToFavorites() {
+        for image in favorites.images{
+            if (image == images[currentIndex]){
+               return
+            }
+        }
         favorites.add(images[currentIndex])
         favorites.saveImages()
         sendNotificationFavorite()
@@ -156,6 +165,10 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         var swipeLeft = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "didDoubleTap:")
+        doubleTapGesture.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTapGesture)
         
         
         //var anObserver = MyObserver(object: favorites);

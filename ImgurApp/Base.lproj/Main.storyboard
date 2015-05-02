@@ -19,49 +19,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-fj-uca">
-                                <rect key="frame" x="78" y="463" width="59" height="30"/>
-                                <state key="normal" title="Previous">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="previousImage:" destination="gPx-Ay-SIs" eventType="touchUpInside" id="api-GP-E9Q"/>
-                                </connections>
-                            </button>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-zB-QnP">
-                                <rect key="frame" x="22" y="55" width="584" height="341"/>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-zB-QnP">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STx-R2-5oR">
-                                <rect key="frame" x="459" y="463" width="32" height="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextImage:" destination="gPx-Ay-SIs" eventType="touchUpInside" id="1Ct-Xe-rGX"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="VhY-fj-uca" firstAttribute="leading" secondItem="iMG-jh-svV" secondAttribute="leadingMargin" constant="40" id="117-q8-auq"/>
-                            <constraint firstItem="jCw-zB-QnP" firstAttribute="top" secondItem="iMG-jh-svV" secondAttribute="topMargin" constant="10" id="7n3-Kr-DJh"/>
-                            <constraint firstAttribute="trailing" secondItem="STx-R2-5oR" secondAttribute="trailing" constant="131" id="LaR-fq-LDn"/>
+                            <constraint firstItem="jCw-zB-QnP" firstAttribute="top" secondItem="iMG-jh-svV" secondAttribute="topMargin" id="7n3-Kr-DJh"/>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="leading" secondItem="iMG-jh-svV" secondAttribute="leading" id="M7Q-qm-S6q"/>
-                            <constraint firstItem="STx-R2-5oR" firstAttribute="baseline" secondItem="VhY-fj-uca" secondAttribute="baseline" id="Ybj-3P-m4d"/>
-                            <constraint firstItem="VhY-fj-uca" firstAttribute="top" secondItem="jCw-zB-QnP" secondAttribute="bottom" constant="67" id="ffy-cc-Dvb"/>
-                            <constraint firstItem="ZwG-cZ-vTl" firstAttribute="top" secondItem="VhY-fj-uca" secondAttribute="bottom" constant="103" id="lHK-8w-xrQ"/>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="trailing" secondItem="iMG-jh-svV" secondAttribute="trailingMargin" id="wje-CO-dqg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kUb-9O-b22" appends="YES" id="qRa-GP-lIP"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="wMS-3C-JRK"/>
                     <connections>
-                        <outlet property="next" destination="STx-R2-5oR" id="f3f-Tz-FO8"/>
-                        <outlet property="previous" destination="STx-R2-5oR" id="fdk-he-FAi"/>
                         <outlet property="webView" destination="jCw-zB-QnP" id="nbM-of-ArG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEv-lP-PTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="kUb-9O-b22">
+                    <connections>
+                        <action selector="didSwipe:" destination="gPx-Ay-SIs" id="NSz-Ht-nE7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-141" y="-119"/>
         </scene>
@@ -229,6 +213,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-rD-ohS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
+                                </connections>
+                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDM-9i-MpY">
                                 <rect key="frame" x="84" y="467" width="226" height="41"/>
                                 <constraints>
@@ -244,17 +236,10 @@
                                     <action selector="randomImage:" destination="A4J-f4-VUM" eventType="touchUpInside" id="FVc-IP-3Wz"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-rD-ohS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Home"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Et9-rD-ohS" secondAttribute="trailing" id="4Xl-tM-YDr"/>
                             <constraint firstItem="CDM-9i-MpY" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leadingMargin" constant="68" id="c3c-kT-Fhn"/>
@@ -263,6 +248,9 @@
                             <constraint firstItem="Et9-rD-ohS" firstAttribute="top" secondItem="eBY-xk-PtN" secondAttribute="top" id="wIi-Ls-NCj"/>
                             <constraint firstItem="Et9-rD-ohS" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leading" id="ymz-dK-sl0"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="V8f-If-2Sk" appends="YES" id="5Il-Cl-e8A"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Gdq-aD-L5s"/>
                     <connections>
@@ -275,6 +263,11 @@
                         <action selector="didSwipe:" destination="A4J-f4-VUM" id="Zge-QV-xLn"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="V8f-If-2Sk">
+                    <connections>
+                        <action selector="didDoubleTap:" destination="A4J-f4-VUM" id="qPR-Hh-ILP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-141" y="-781"/>
         </scene>

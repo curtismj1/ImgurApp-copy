@@ -1,0 +1,4 @@
+platform : ios, "8.0J"
+
+pod "AFNetworking"
+pod "BDBOAuth1Manager"

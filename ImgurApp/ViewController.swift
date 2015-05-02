@@ -149,6 +149,15 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         var request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
         
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        
         //var anObserver = MyObserver(object: favorites);
  
         

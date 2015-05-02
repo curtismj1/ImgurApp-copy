@@ -16,12 +16,11 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     var images:Array<String> = []
     var favorites = Favorites()
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var next: UIButton!
-    @IBOutlet weak var previous: UIButton!
+
     
     var currentIndex = 0
     
-    func nextImage(sender: AnyObject) {
+    func nextImage() {
         if (currentIndex < images.count) {
             currentIndex++
             var url = NSURL(string: images[currentIndex])
@@ -30,8 +29,18 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         }
     }
     
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        if(sender.direction == UISwipeGestureRecognizerDirection.Right){
+            previousImage();
+        }
+        else{
+            nextImage();
+        }
+     
+        
+    }
    
-    func previousImage(sender: AnyObject) {
+    func previousImage() {
         if (currentIndex > 0) {
             currentIndex--
             var url = NSURL(string: images[currentIndex])
@@ -48,7 +57,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         webView.loadRequest(request)
     }
     
-    @IBAction func addToFavorites(sender: AnyObject) {
+    func addToFavorites(sender: AnyObject) {
         favorites.add(images[currentIndex])
         favorites.saveImages()
         sendNotificationFavorite()

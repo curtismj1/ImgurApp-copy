@@ -229,18 +229,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-rD-ohS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
-                                </connections>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDM-9i-MpY">
-                                <rect key="frame" x="13" y="464" width="226" height="41"/>
+                                <rect key="frame" x="84" y="467" width="226" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="vvr-lW-8iD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="226" id="QhV-7y-Sn6"/>
+                                    <constraint firstAttribute="width" constant="226" id="YIv-96-EYP"/>
+                                    <constraint firstAttribute="height" constant="41" id="urD-0d-y4N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Get Random Page!">
@@ -250,43 +244,37 @@
                                     <action selector="randomImage:" destination="A4J-f4-VUM" eventType="touchUpInside" id="FVc-IP-3Wz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWi-Y2-mSX">
-                                <rect key="frame" x="452" y="458" width="98" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="Tub-9g-d2g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Favorite">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-rD-ohS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="addToFavorites:" destination="A4J-f4-VUM" eventType="touchUpInside" id="Nwm-Gd-q07"/>
+                                    <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
                                 </connections>
-                            </button>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Home"/>
                         <constraints>
-                            <constraint firstItem="bWi-Y2-mSX" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leadingMargin" constant="436" id="UMT-Wv-EAh"/>
-                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="Et9-rD-ohS" secondAttribute="bottom" constant="44" id="Y06-Pf-XiI"/>
-                            <constraint firstItem="XAZ-uB-47B" firstAttribute="top" secondItem="CDM-9i-MpY" secondAttribute="bottom" constant="46" id="rEs-aN-jpT"/>
-                            <constraint firstAttribute="trailing" secondItem="Et9-rD-ohS" secondAttribute="trailing" id="sgJ-r2-8sh"/>
-                            <constraint firstItem="bWi-Y2-mSX" firstAttribute="bottom" secondItem="XAZ-uB-47B" secondAttribute="top" constant="-39" id="tEr-Qu-wrV"/>
-                            <constraint firstItem="Et9-rD-ohS" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leading" id="tZb-SJ-R9c"/>
-                            <constraint firstItem="bWi-Y2-mSX" firstAttribute="top" secondItem="Et9-rD-ohS" secondAttribute="bottom" constant="38" id="vxO-KQ-N0D"/>
-                            <constraint firstItem="CDM-9i-MpY" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leadingMargin" constant="-3" id="yJS-g2-jBX"/>
-                            <constraint firstItem="Et9-rD-ohS" firstAttribute="top" secondItem="eBY-xk-PtN" secondAttribute="top" id="zql-Fk-bPO"/>
-                            <constraint firstItem="bWi-Y2-mSX" firstAttribute="centerX" secondItem="CDM-9i-MpY" secondAttribute="centerX" constant="375" id="zxf-ET-hgV"/>
+                            <constraint firstAttribute="trailing" secondItem="Et9-rD-ohS" secondAttribute="trailing" id="4Xl-tM-YDr"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leadingMargin" constant="68" id="c3c-kT-Fhn"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="Et9-rD-ohS" secondAttribute="bottom" constant="47" id="dOq-LU-nyG"/>
+                            <constraint firstItem="XAZ-uB-47B" firstAttribute="top" secondItem="CDM-9i-MpY" secondAttribute="bottom" constant="43" id="mBY-W5-M9D"/>
+                            <constraint firstItem="Et9-rD-ohS" firstAttribute="top" secondItem="eBY-xk-PtN" secondAttribute="top" id="wIi-Ls-NCj"/>
+                            <constraint firstItem="Et9-rD-ohS" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leading" id="ymz-dK-sl0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Gdq-aD-L5s"/>
                     <connections>
-                        <outlet property="favoriteImage" destination="bWi-Y2-mSX" id="nMV-Jx-tZ2"/>
                         <outlet property="webView" destination="Et9-rD-ohS" id="TLN-JI-bFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWw-X1-zXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="gGN-Gd-NiO"/>
+                <swipeGestureRecognizer direction="right" id="gGN-Gd-NiO">
+                    <connections>
+                        <action selector="didSwipe:" destination="A4J-f4-VUM" id="Zge-QV-xLn"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-141" y="-781"/>
         </scene>

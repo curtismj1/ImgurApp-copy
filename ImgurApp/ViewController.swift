@@ -68,6 +68,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     }
     
     func addToFavorites() {
+        println(currentIndex)
         for image in favorites.images{
             if(images.count > 0){
                 if (image == images[currentIndex]){
@@ -78,10 +79,11 @@ class ViewController: UIViewController, NSURLSessionDelegate{
             }
             
         }
+
         favorites.add(images[currentIndex])
         favorites.saveImages()
         sendNotificationFavorite()
-
+        
     }
 
     
@@ -197,6 +199,12 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         indicator.hidden = true
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(false)
+        favorites.loadImagesFromFile()
+    }
+
     override func viewDidLoad() {
         loadGallery(nil)
         var url = NSURL(string: "www.google.com")

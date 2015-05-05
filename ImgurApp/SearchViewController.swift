@@ -20,6 +20,7 @@ class SearchViewController: UIViewController, searchResultsDelegate{
     }
     
     
+    
     func done(child: searchResults){
         dismissViewControllerAnimated(true, completion: nil)
         
@@ -58,7 +59,9 @@ class SearchViewController: UIViewController, searchResultsDelegate{
     
     override func viewDidLoad() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "doSegue:", name:"segue", object: nil)
-    }
+        
+        
+            }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let child = segue.destinationViewController as! searchResults

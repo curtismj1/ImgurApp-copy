@@ -21,8 +21,16 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(false)
         favorites.loadImagesFromFile()
         images = favorites.getImages()
+        
+        println("viewwill appear \(images.count)")
+        
+        if images.count > 0{
+            currentIndex = images.count-1
+            webView.hidden = false
+        }
+        
         if(images.count > 0){
-            var url = NSURL(string: images[0])
+            var url = NSURL(string: images[self.currentIndex])
             var request = NSURLRequest(URL: url!)
             webView.loadRequest(request)
             
@@ -34,6 +42,8 @@ class FavoritesViewController: UIViewController {
         favorites.saveImages()
         favorites.loadImagesFromFile()
         images = favorites.getImages()
+        
+        webView.hidden = true
 
     }
     
@@ -41,24 +51,35 @@ class FavoritesViewController: UIViewController {
     
     @IBAction func deleteFav(sender: AnyObject) {
         
-        if(images.count == 1){
-            favorites.clearAll()
+        println("Image count \(images.count)")
+        println("Current index \(self.currentIndex)")
+        
+        if images.count > 0{
+            
+           // println(images)
+            
+            favorites.delete(images[self.currentIndex])
             favorites.saveImages()
             favorites.loadImagesFromFile()
             images = favorites.getImages()
-        }
-        else if(currentIndex < images.count){
-        favorites.delete(images[currentIndex])
-        favorites.saveImages()
-        favorites.loadImagesFromFile()
-        images = favorites.getImages()
-            if(currentIndex < images.count){
-                var url = NSURL(string: images[currentIndex])
+            
+            //println(images)
+            
+            if self.currentIndex > 0{
+                self.currentIndex--
+            }
+        
+            if images.count > 0 {
+                
+                var url = NSURL(string: images[self.currentIndex])
                 var request = NSURLRequest(URL: url!)
                 webView.loadRequest(request)
+            }else{
+                webView.hidden = true
             }
-
+            
         }
+        
 
     }
     
@@ -68,16 +89,17 @@ class FavoritesViewController: UIViewController {
                 if (image == images[currentIndex]){
                     return
                 }
-                favorites.add(images[currentIndex])
-                favorites.saveImages()
             }
         }
-        
+        favorites.add(images[currentIndex])
+        favorites.saveImages()
+        webView.hidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         /*favorites.loadImagesFromFile()
         images = favorites.getImages()
         if(images.count > 0){

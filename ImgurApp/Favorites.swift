@@ -35,17 +35,22 @@ class Favorites{
     }
     func clearAll(){
         images = []
+        saveImages()
         
     }
     func delete(myImage: String){
         var a = 0
+        println("images before delete \(images.count)")
         for image in images{
             if(image == myImage){
                 images.removeAtIndex(a)
+                saveImages()
+                println("deleted \(a)")
+                break
             }
             a++
         }
-        
+        println("images after delete \(images.count)")
     }
     
     func add(myImage:String){
@@ -72,6 +77,7 @@ class Favorites{
         return images
     }
     func loadImagesFromFile(){
+        images = []
         if let dirs : [String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
             let dir = dirs[0] //documents directory
             path = dir.stringByAppendingPathComponent(file);

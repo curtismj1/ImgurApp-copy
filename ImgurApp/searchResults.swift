@@ -18,15 +18,42 @@ class searchResults: UIViewController {
     var delegate: searchResultsDelegate!
     var favorites = Favorites()
     
+    @IBOutlet var imgView: UIImageView!
+    
     @IBOutlet weak var web: UIWebView!
     
     var images = [image]()
     var str_images:Array<String> = []
     
+    func showHeart(){
+        var x:CGFloat = 0.0
+        UIView.animateWithDuration(1.2, delay: 0.0, options: .BeginFromCurrentState,
+            animations:
+            {
+                self.imgView.hidden = false
+                self.imgView.alpha = x
+                x+=0.01
+            },
+            completion: {(value: Bool) in
+                self.imgView.hidden = true
+                self.imgView.alpha = 1.0
+        })
+        
+        
+        
+    }
+    
     override func viewDidLoad() {
         var url = NSURL(string: images.first!.link as String)
         var request = NSURLRequest(URL: url!)
         web.loadRequest(request)
+        
+        //Heart stuff
+        let img = UIImage(named: "heart.png")
+        imgView.image = img;
+        view.addSubview(imgView)
+        imgView.hidden = true
+
         
         var swipeRight = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -62,6 +89,7 @@ class searchResults: UIViewController {
         favorites.add(images[currentIndex].link as String)
         favorites.saveImages()
         sendNotificationFavorite()
+        showHeart()
     }
     func nextImage() {
         if (currentIndex < images.count - 1) {

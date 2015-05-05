@@ -146,8 +146,8 @@
 				4CD3F2911ADD6EC2006D510D /* AppDelegate.swift */,
 				4CD3F2931ADD6EC2006D510D /* ViewController.swift */,
 				4CD3F2981ADD6EC2006D510D /* Images.xcassets */,
-				4CD3F29A1ADD6EC2006D510D /* LaunchScreen.xib */,
 				4CD3F28F1ADD6EC2006D510D /* Supporting Files */,
+				4CD3F29A1ADD6EC2006D510D /* LaunchScreen.xib */,
 				4CD3F2B11ADD7602006D510D /* ImgurApp-Bridging-Header.h */,
 			);
 			path = ImgurApp;

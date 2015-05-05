@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-zB-QnP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="464"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="393"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYc-jZ-A2Q">
@@ -60,7 +60,7 @@
                             <constraint firstItem="ZwG-cZ-vTl" firstAttribute="top" secondItem="Seo-Sp-rEQ" secondAttribute="bottom" constant="8" id="Ojy-bm-V8O"/>
                             <constraint firstItem="ZwG-cZ-vTl" firstAttribute="top" secondItem="xYc-jZ-A2Q" secondAttribute="bottom" constant="13" id="SeA-Wk-Vzm"/>
                             <constraint firstItem="Seo-Sp-rEQ" firstAttribute="baseline" secondItem="xYc-jZ-A2Q" secondAttribute="firstBaseline" id="dy8-CY-XOA"/>
-                            <constraint firstItem="Seo-Sp-rEQ" firstAttribute="top" secondItem="jCw-zB-QnP" secondAttribute="bottom" constant="16" id="rCC-KD-lmS"/>
+                            <constraint firstItem="Seo-Sp-rEQ" firstAttribute="top" secondItem="jCw-zB-QnP" secondAttribute="bottom" constant="87" id="rCC-KD-lmS"/>
                             <constraint firstItem="Seo-Sp-rEQ" firstAttribute="leading" secondItem="xYc-jZ-A2Q" secondAttribute="trailing" constant="75" id="uuc-Gf-BC6"/>
                             <constraint firstItem="xYc-jZ-A2Q" firstAttribute="baseline" secondItem="Seo-Sp-rEQ" secondAttribute="firstBaseline" id="wAD-f8-2L3"/>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="trailing" secondItem="iMG-jh-svV" secondAttribute="trailingMargin" constant="16" id="wje-CO-dqg"/>
@@ -81,7 +81,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-141" y="-119"/>
+            <point key="canvasLocation" x="-149" y="-135"/>
         </scene>
         <!--Search-->
         <scene sceneID="8aj-YD-SbS">
@@ -165,6 +165,12 @@
                                     <action selector="done:" destination="cmD-OO-b48" eventType="touchUpInside" id="XNj-Bt-6Vw"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1CB-gu-qXe">
+                                <rect key="frame" x="240" y="303" width="135" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="mqa-33-4rz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -173,8 +179,11 @@
                             <constraint firstItem="Dfb-R6-BxU" firstAttribute="top" secondItem="wEg-wG-duw" secondAttribute="bottom" constant="57" id="8CH-9q-EFW"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leadingMargin" constant="-16" id="AMg-qt-tLM"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="top" secondItem="8e2-E1-bcZ" secondAttribute="topMargin" constant="-5" id="HIz-Ea-dgf"/>
+                            <constraint firstItem="1CB-gu-qXe" firstAttribute="centerX" secondItem="wEg-wG-duw" secondAttribute="centerX" id="VVc-50-kub"/>
                             <constraint firstItem="Dfb-R6-BxU" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leading" constant="129" id="bl8-Gm-myc"/>
+                            <constraint firstItem="1CB-gu-qXe" firstAttribute="bottom" secondItem="wEg-wG-duw" secondAttribute="bottom" id="mSs-ez-afp"/>
                             <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="Dfb-R6-BxU" secondAttribute="bottom" constant="54" id="nyp-Jg-Hrh"/>
+                            <constraint firstItem="1CB-gu-qXe" firstAttribute="top" secondItem="aZD-1Y-nSU" secondAttribute="bottom" constant="283" id="rB0-hD-wmn"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="centerX" secondItem="8e2-E1-bcZ" secondAttribute="centerX" constant="7" id="rBL-KI-05Y"/>
                         </constraints>
                         <connections>
@@ -183,6 +192,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="imgView" destination="1CB-gu-qXe" id="rGx-Iy-w3k"/>
                         <outlet property="web" destination="wEg-wG-duw" id="gZk-3Q-Y70"/>
                     </connections>
                 </viewController>
@@ -213,19 +223,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-rD-ohS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
                                 </connections>
                             </webView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="umu-pl-63c">
-                                <rect key="frame" x="237" y="292" width="126" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="Bhy-dR-pfb"/>
-                                </constraints>
-                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sun-CG-OWG">
                                 <rect key="frame" x="290" y="449" width="20" height="20"/>
                             </activityIndicatorView>
@@ -243,13 +247,19 @@
                                     <action selector="randomImage:" destination="A4J-f4-VUM" eventType="touchUpInside" id="FVc-IP-3Wz"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="umu-pl-63c">
+                                <rect key="frame" x="237" y="222" width="126" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="Bhy-dR-pfb"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Home"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="CDM-9i-MpY" secondAttribute="centerX" id="76z-hC-bRu"/>
-                            <constraint firstItem="umu-pl-63c" firstAttribute="top" secondItem="m3O-k2-M1N" secondAttribute="bottom" constant="272" id="AsS-nH-QhV"/>
+                            <constraint firstItem="umu-pl-63c" firstAttribute="top" secondItem="m3O-k2-M1N" secondAttribute="bottom" constant="202" id="AsS-nH-QhV"/>
                             <constraint firstItem="CDM-9i-MpY" firstAttribute="centerX" secondItem="umu-pl-63c" secondAttribute="centerX" id="BTg-9r-T1X"/>
                             <constraint firstAttribute="centerX" secondItem="sun-CG-OWG" secondAttribute="centerX" id="EjF-h3-yff"/>
                             <constraint firstItem="umu-pl-63c" firstAttribute="bottom" secondItem="Et9-rD-ohS" secondAttribute="bottom" id="EmP-wv-v32"/>
@@ -259,7 +269,7 @@
                             <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="sun-CG-OWG" secondAttribute="bottom" constant="17" id="dbR-ml-WKg"/>
                             <constraint firstItem="XAZ-uB-47B" firstAttribute="top" secondItem="CDM-9i-MpY" secondAttribute="bottom" constant="24" id="i2L-Ep-2oJ"/>
                             <constraint firstItem="Et9-rD-ohS" firstAttribute="top" secondItem="eBY-xk-PtN" secondAttribute="top" id="uLT-rW-TVW"/>
-                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="umu-pl-63c" secondAttribute="bottom" constant="66" id="zRj-jC-wza"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="umu-pl-63c" secondAttribute="bottom" constant="136" id="zRj-jC-wza"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="V8f-If-2Sk" appends="YES" id="5Il-Cl-e8A"/>

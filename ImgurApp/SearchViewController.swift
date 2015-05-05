@@ -45,7 +45,7 @@ class SearchViewController: UIViewController, searchResultsDelegate{
         
         op.completionBlock = {
             NSOperationQueue.mainQueue().addOperationWithBlock({
-                self.view.backgroundColor = UIColor.greenColor()
+                //self.view.backgroundColor = UIColor.greenColor()
                 
                 println("completion block")
                 self.images = op.images

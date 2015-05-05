@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-141" y="-119"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="8aj-YD-SbS">
             <objects>
-                <viewController id="PWm-bb-l3R" customClass="SearchViewController" customModule="ImgurApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="PWm-bb-l3R" customClass="SearchViewController" customModule="ImgurApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uxH-lE-7r5"/>
                         <viewControllerLayoutGuide type="bottom" id="K8C-2Q-fge"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="8IW-fx-wJS" firstAttribute="top" secondItem="uxH-lE-7r5" secondAttribute="bottom" constant="224" id="xnu-Er-VHT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="yrt-lv-TY2"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-1" id="yrt-lv-TY2"/>
                     <connections>
                         <outlet property="searchField" destination="ZB9-xj-qP4" id="cSa-Gf-8hu"/>
                         <segue destination="cmD-OO-b48" kind="presentation" identifier="segue" id="UH8-S5-1vi"/>
@@ -140,6 +140,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bvh-99-SqB" appends="YES" id="wJs-fh-YK2"/>
+                            <outletCollection property="gestureRecognizers" destination="W2F-Ua-UYR" appends="YES" id="EPj-QG-f0Q"/>
                         </connections>
                     </view>
                     <connections>
@@ -152,6 +153,11 @@
                         <action selector="addToFavs:" destination="cmD-OO-b48" id="c6o-Hq-nNx"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="W2F-Ua-UYR">
+                    <connections>
+                        <action selector="didSwipe:" destination="cmD-OO-b48" id="rdx-WQ-ObE"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="377" y="567"/>
         </scene>
@@ -214,7 +220,7 @@
                             <outletCollection property="gestureRecognizers" destination="V8f-If-2Sk" appends="YES" id="5Il-Cl-e8A"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="Gdq-aD-L5s"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Gdq-aD-L5s"/>
                     <connections>
                         <outlet property="imgView" destination="umu-pl-63c" id="Pqi-7W-Ycq"/>
                         <outlet property="webView" destination="Et9-rD-ohS" id="TLN-JI-bFt"/>
@@ -256,6 +262,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="50" height="50"/>
+        <image name="search-1" width="40" height="40"/>
         <image name="w" width="16" height="16"/>
     </resources>
 </document>

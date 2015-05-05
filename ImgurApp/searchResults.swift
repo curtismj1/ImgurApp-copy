@@ -27,6 +27,18 @@ class searchResults: UIViewController {
         var url = NSURL(string: images.first!.link as String)
         var request = NSURLRequest(URL: url!)
         web.loadRequest(request)
+        
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "didDoubleTap:")
+        doubleTapGesture.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTapGesture)
     }
     
     @IBAction func done(sender: AnyObject) {
@@ -38,10 +50,18 @@ class searchResults: UIViewController {
         str_images = favorites.getImages()
     }
 
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        if(sender.direction == UISwipeGestureRecognizerDirection.Right){
+            previousImage();
+        }
+        else{
+            nextImage();
+        }
+    }
     @IBAction func addToFavs(sender: AnyObject) {
         
     }
-    @IBAction func nextImage(sender: UIButton) {
+    func nextImage() {
         if (currentIndex < images.count - 1) {
             currentIndex++
             var url = NSURL(string: images[currentIndex].link as String)
@@ -59,7 +79,7 @@ class searchResults: UIViewController {
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
-    @IBAction func prevImage(sender: UIButton) {
+    func previousImage() {
         if (currentIndex > 0) {
             currentIndex--
             var url = NSURL(string: images[currentIndex].link as String)

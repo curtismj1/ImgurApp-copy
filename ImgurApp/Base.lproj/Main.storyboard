@@ -153,7 +153,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfb-R6-BxU">
-                                <rect key="frame" x="156" y="502" width="37" height="30"/>
+                                <rect key="frame" x="129" y="488" width="100" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fc6-HW-6o7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -166,10 +170,11 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="wEg-wG-duw" secondAttribute="bottom" constant="169" id="1tM-ss-YP1"/>
+                            <constraint firstItem="Dfb-R6-BxU" firstAttribute="top" secondItem="wEg-wG-duw" secondAttribute="bottom" constant="57" id="8CH-9q-EFW"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leadingMargin" constant="-16" id="AMg-qt-tLM"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="top" secondItem="8e2-E1-bcZ" secondAttribute="topMargin" constant="-5" id="HIz-Ea-dgf"/>
-                            <constraint firstItem="Dfb-R6-BxU" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leading" constant="156" id="osd-a4-13w"/>
-                            <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="Dfb-R6-BxU" secondAttribute="bottom" constant="68" id="qbo-cH-F7F"/>
+                            <constraint firstItem="Dfb-R6-BxU" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leading" constant="129" id="bl8-Gm-myc"/>
+                            <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="Dfb-R6-BxU" secondAttribute="bottom" constant="54" id="nyp-Jg-Hrh"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="centerX" secondItem="8e2-E1-bcZ" secondAttribute="centerX" constant="7" id="rBL-KI-05Y"/>
                         </constraints>
                         <connections>

@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var next: UIButton!
     @IBOutlet weak var previous: UIButton!
+    var currentIndex = 0
     
     
     override func viewWillAppear(animated: Bool) {
@@ -28,6 +29,39 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    @IBAction func clearFavs(sender: AnyObject) {
+        favorites.clearAll()
+        favorites.saveImages()
+        favorites.loadImagesFromFile()
+        images = favorites.getImages()
+
+    }
+    
+    
+    
+    @IBAction func deleteFav(sender: AnyObject) {
+        
+        if(images.count == 1){
+            favorites.clearAll()
+            favorites.saveImages()
+            favorites.loadImagesFromFile()
+            images = favorites.getImages()
+        }
+        else if(currentIndex < images.count){
+        favorites.delete(images[currentIndex])
+        favorites.saveImages()
+        favorites.loadImagesFromFile()
+        images = favorites.getImages()
+            if(currentIndex < images.count){
+                var url = NSURL(string: images[currentIndex])
+                var request = NSURLRequest(URL: url!)
+                webView.loadRequest(request)
+            }
+
+        }
+
+    }
+    
     func addToFavorites() {
         for image in favorites.images{
             if(images.count > 0){
@@ -36,8 +70,6 @@ class FavoritesViewController: UIViewController {
                 }
                 favorites.add(images[currentIndex])
                 favorites.saveImages()
-                
-                
             }
         }
         
@@ -76,7 +108,7 @@ class FavoritesViewController: UIViewController {
         }
     }
     
-    var currentIndex = 0
+   
     
     @IBAction func nextImage() {
         if (currentIndex < images.count - 1) {

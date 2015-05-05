@@ -33,6 +33,21 @@ class Favorites{
                 let text2 = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
         }
     }
+    func clearAll(){
+        images = []
+        
+    }
+    func delete(myImage: String){
+        var a = 0
+        for image in images{
+            if(image == myImage){
+                images.removeAtIndex(a)
+            }
+            a++
+        }
+        
+    }
+    
     func add(myImage:String){
         images.append(myImage)
     }

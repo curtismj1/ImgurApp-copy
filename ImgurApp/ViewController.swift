@@ -72,15 +72,16 @@ class ViewController: UIViewController, NSURLSessionDelegate{
                 if (image == images[currentIndex]){
                     return
                 }
-                favorites.add(images[currentIndex])
-                favorites.saveImages()
-                sendNotificationFavorite()
+
                 
             }
         }
+        favorites.add(images[currentIndex])
+        favorites.saveImages()
+        sendNotificationFavorite()
 
     }
-    @IBOutlet weak var favoriteImage: UIButton!
+
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset: Int64, expectedTotalBytes: Int64) {
         //NSLog("Downloaded: \(didResumeAtOffset) of \(expectedTotalBytes) bytes")

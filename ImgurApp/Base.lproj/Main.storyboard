@@ -19,16 +19,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-zB-QnP">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCw-zB-QnP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYc-jZ-A2Q">
+                                <rect key="frame" x="59" y="485" width="89" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="NGC-7g-vu5"/>
+                                    <constraint firstAttribute="width" constant="89" id="cJw-2l-elY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteFav:" destination="gPx-Ay-SIs" eventType="touchUpInside" id="bI5-jh-kLM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-Sp-rEQ">
+                                <rect key="frame" x="223" y="480" width="121" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="C1r-sB-QYe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Clear All">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearFavs:" destination="gPx-Ay-SIs" eventType="touchUpInside" id="4Ac-sk-IZ8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="top" secondItem="iMG-jh-svV" secondAttribute="topMargin" id="7n3-Kr-DJh"/>
+                            <constraint firstItem="xYc-jZ-A2Q" firstAttribute="leading" secondItem="iMG-jh-svV" secondAttribute="leadingMargin" constant="43" id="BAw-B6-1U0"/>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="leading" secondItem="iMG-jh-svV" secondAttribute="leading" id="M7Q-qm-S6q"/>
+                            <constraint firstItem="ZwG-cZ-vTl" firstAttribute="top" secondItem="Seo-Sp-rEQ" secondAttribute="bottom" constant="8" id="Ojy-bm-V8O"/>
+                            <constraint firstItem="ZwG-cZ-vTl" firstAttribute="top" secondItem="xYc-jZ-A2Q" secondAttribute="bottom" constant="13" id="SeA-Wk-Vzm"/>
+                            <constraint firstItem="Seo-Sp-rEQ" firstAttribute="baseline" secondItem="xYc-jZ-A2Q" secondAttribute="firstBaseline" id="dy8-CY-XOA"/>
+                            <constraint firstItem="Seo-Sp-rEQ" firstAttribute="top" secondItem="jCw-zB-QnP" secondAttribute="bottom" constant="16" id="rCC-KD-lmS"/>
+                            <constraint firstItem="Seo-Sp-rEQ" firstAttribute="leading" secondItem="xYc-jZ-A2Q" secondAttribute="trailing" constant="75" id="uuc-Gf-BC6"/>
+                            <constraint firstItem="xYc-jZ-A2Q" firstAttribute="baseline" secondItem="Seo-Sp-rEQ" secondAttribute="firstBaseline" id="wAD-f8-2L3"/>
                             <constraint firstItem="jCw-zB-QnP" firstAttribute="trailing" secondItem="iMG-jh-svV" secondAttribute="trailingMargin" constant="16" id="wje-CO-dqg"/>
                         </constraints>
                         <connections>
@@ -220,7 +254,7 @@
                             <outletCollection property="gestureRecognizers" destination="V8f-If-2Sk" appends="YES" id="5Il-Cl-e8A"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="Gdq-aD-L5s"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="w" selectedImage="home" id="Gdq-aD-L5s"/>
                     <connections>
                         <outlet property="imgView" destination="umu-pl-63c" id="Pqi-7W-Ycq"/>
                         <outlet property="webView" destination="Et9-rD-ohS" id="TLN-JI-bFt"/>

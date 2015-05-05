@@ -115,39 +115,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-wG-duw">
-                                <rect key="frame" x="0.0" y="11" width="614" height="420"/>
+                                <rect key="frame" x="0.0" y="-5" width="614" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIH-yZ-6Nn">
-                                <rect key="frame" x="258" y="492" width="98" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="NDw-NP-b3a"/>
-                                    <constraint firstAttribute="height" constant="54" id="qgy-fV-JpN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Favorite">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfb-R6-BxU">
+                                <rect key="frame" x="156" y="502" width="37" height="30"/>
+                                <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="favoriteImage:" destination="cmD-OO-b48" eventType="touchUpInside" id="bdG-gn-AD2"/>
+                                    <action selector="done:" destination="cmD-OO-b48" eventType="touchUpInside" id="XNj-Bt-6Vw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="wEg-wG-duw" secondAttribute="bottom" constant="169" id="1tM-ss-YP1"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leadingMargin" constant="-16" id="AMg-qt-tLM"/>
-                            <constraint firstItem="wEg-wG-duw" firstAttribute="top" secondItem="8e2-E1-bcZ" secondAttribute="topMargin" constant="11" id="HIz-Ea-dgf"/>
-                            <constraint firstItem="xIH-yZ-6Nn" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leadingMargin" constant="242" id="KbO-eg-gZ4"/>
-                            <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="xIH-yZ-6Nn" secondAttribute="bottom" constant="54" id="RFU-jy-MU0"/>
+                            <constraint firstItem="wEg-wG-duw" firstAttribute="top" secondItem="8e2-E1-bcZ" secondAttribute="topMargin" constant="-5" id="HIz-Ea-dgf"/>
+                            <constraint firstItem="Dfb-R6-BxU" firstAttribute="leading" secondItem="8e2-E1-bcZ" secondAttribute="leading" constant="156" id="osd-a4-13w"/>
+                            <constraint firstItem="wIG-KE-MbF" firstAttribute="top" secondItem="Dfb-R6-BxU" secondAttribute="bottom" constant="68" id="qbo-cH-F7F"/>
                             <constraint firstItem="wEg-wG-duw" firstAttribute="centerX" secondItem="8e2-E1-bcZ" secondAttribute="centerX" constant="7" id="rBL-KI-05Y"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Bvh-99-SqB" appends="YES" id="wJs-fh-YK2"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="web" destination="wEg-wG-duw" id="gZk-3Q-Y70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Re-QA-gfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Bvh-99-SqB">
+                    <connections>
+                        <action selector="addToFavs:" destination="cmD-OO-b48" id="c6o-Hq-nNx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="377" y="567"/>
         </scene>

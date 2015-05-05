@@ -26,9 +26,20 @@ class FavoritesViewController: UIViewController {
             webView.loadRequest(request)
             
         }
-        
-       
-
+    }
+    
+    func addToFavorites() {
+        for image in favorites.images{
+            if(images.count > 0){
+                if (image == images[currentIndex]){
+                    return
+                }
+                favorites.add(images[currentIndex])
+                favorites.saveImages()
+                
+                
+            }
+        }
         
     }
     

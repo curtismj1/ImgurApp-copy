@@ -8,23 +8,39 @@
 
 import UIKit
 
+protocol searchResultsDelegate{
+    func done(child: searchResults)
+}
+
 class searchResults: UIViewController {
     
     var currentIndex = 0
-    
+    var delegate: searchResultsDelegate!
     var favorites = Favorites()
     
     @IBOutlet weak var web: UIWebView!
     
     var images = [image]()
-    
+    var str_images:Array<String> = []
     
     override func viewDidLoad() {
         var url = NSURL(string: images.first!.link as String)
         var request = NSURLRequest(URL: url!)
         web.loadRequest(request)
     }
+    
+    @IBAction func done(sender: AnyObject) {
+        delegate.done(self)
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(false)
+        favorites.loadImagesFromFile()
+        str_images = favorites.getImages()
+    }
 
+    @IBAction func addToFavs(sender: AnyObject) {
+        
+    }
     @IBAction func nextImage(sender: UIButton) {
         if (currentIndex < images.count - 1) {
             currentIndex++

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController{
+class SearchViewController: UIViewController, searchResultsDelegate{
     
     var images = [image]()
     
@@ -17,6 +17,12 @@ class SearchViewController: UIViewController{
     func doSegue(notification: NSNotification){
         println("dosegue")
         self.performSegueWithIdentifier("segue", sender: self)
+    }
+    
+    
+    func done(child: searchResults){
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     @IBAction func searchButton(sender: UIButton) {
@@ -58,6 +64,7 @@ class SearchViewController: UIViewController{
         let child = segue.destinationViewController as! searchResults
         
         child.images = self.images
+        child.delegate = self
         
     }
 }

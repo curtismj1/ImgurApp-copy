@@ -18,6 +18,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     @IBOutlet weak var webView: UIWebView!
     let layer = CALayer()
     
+    @IBOutlet var indicator: UIActivityIndicatorView!
 
     var currentIndex = 0
     
@@ -75,6 +76,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
 
                 
             }
+            
         }
         favorites.add(images[currentIndex])
         favorites.saveImages()
@@ -84,7 +86,7 @@ class ViewController: UIViewController, NSURLSessionDelegate{
 
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset: Int64, expectedTotalBytes: Int64) {
-        //NSLog("Downloaded: \(didResumeAtOffset) of \(expectedTotalBytes) bytes")
+        NSLog("Downloaded: \(didResumeAtOffset) of \(expectedTotalBytes) bytes")
     }
     
     func sendNotificationFavorite(){
@@ -97,7 +99,8 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData: Int64,  totalBytesWritten: Int64, expectedTotalBytes: Int64) {
-       // NSLog("Downloaded: \(totalBytesWritten) of \(expectedTotalBytes) bytes")
+       //NSLog("Downloaded: \(totalBytesWritten) of \(expectedTotalBytes) bytes")
+        
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location : NSURL) {
@@ -120,6 +123,14 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         for item in images{
             //NSLog(item)
         }
+        
+        
+        if(images.count > 0){
+            var url = NSURL(string: images[0])
+            var request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
+            
+        }
     }
     func showHeart(){
         var x:CGFloat = 0.0
@@ -129,10 +140,10 @@ class ViewController: UIViewController, NSURLSessionDelegate{
             self.imgView.hidden = false
             self.imgView.alpha = x
             x+=0.01
-  
             },
             completion: {(value: Bool) in
-        
+                self.imgView.hidden = true
+                self.imgView.alpha = 1.0
         })
   
         
@@ -172,17 +183,26 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         let session = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)
         let dTask = session.downloadTaskWithURL(url!)
         
+        
+        //downloadTaskWithURL(url!)
+        
         dTask.resume();
+        indicator.startAnimating()
     
         
     }
     
+    func stopAnimating(){
+        indicator.stopAnimating()
+        indicator.hidden = true
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         loadGallery(nil)
         var url = NSURL(string: "www.google.com")
         var request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
+        
         
         var swipeRight = UISwipeGestureRecognizer(target: self, action: "didSwipe:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -208,6 +228,10 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         imgView.image = img;
         view.addSubview(imgView)
         imgView.hidden = true
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.stopAnimating()
+        });
         
  
         

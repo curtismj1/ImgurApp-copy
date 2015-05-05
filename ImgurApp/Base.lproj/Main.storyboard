@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rZj-5h-DNT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rZj-5h-DNT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -220,11 +220,20 @@
                                     <outletCollection property="gestureRecognizers" destination="gGN-Gd-NiO" appends="YES" id="tNd-Ez-y28"/>
                                 </connections>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDM-9i-MpY">
-                                <rect key="frame" x="84" y="467" width="226" height="41"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="umu-pl-63c">
+                                <rect key="frame" x="237" y="292" width="126" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="226" id="Egx-Ie-pxv"/>
-                                    <constraint firstAttribute="height" constant="41" id="Qof-po-7wW"/>
+                                    <constraint firstAttribute="width" constant="126" id="Bhy-dR-pfb"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sun-CG-OWG">
+                                <rect key="frame" x="290" y="449" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDM-9i-MpY">
+                                <rect key="frame" x="187" y="486" width="226" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="9Qd-lQ-SIL"/>
+                                    <constraint firstAttribute="height" constant="41" id="wfL-8x-r6H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Get Random Page!">
@@ -234,26 +243,23 @@
                                     <action selector="randomImage:" destination="A4J-f4-VUM" eventType="touchUpInside" id="FVc-IP-3Wz"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="umu-pl-63c">
-                                <rect key="frame" x="237" y="292" width="126" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="Bhy-dR-pfb"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Home"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="CDM-9i-MpY" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leadingMargin" constant="68" id="3xQ-Jg-KwJ"/>
+                            <constraint firstAttribute="centerX" secondItem="CDM-9i-MpY" secondAttribute="centerX" id="76z-hC-bRu"/>
                             <constraint firstItem="umu-pl-63c" firstAttribute="top" secondItem="m3O-k2-M1N" secondAttribute="bottom" constant="272" id="AsS-nH-QhV"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="centerX" secondItem="umu-pl-63c" secondAttribute="centerX" id="BTg-9r-T1X"/>
+                            <constraint firstAttribute="centerX" secondItem="sun-CG-OWG" secondAttribute="centerX" id="EjF-h3-yff"/>
                             <constraint firstItem="umu-pl-63c" firstAttribute="bottom" secondItem="Et9-rD-ohS" secondAttribute="bottom" id="EmP-wv-v32"/>
                             <constraint firstAttribute="trailing" secondItem="Et9-rD-ohS" secondAttribute="trailing" id="Iyx-Nf-vbj"/>
                             <constraint firstItem="Et9-rD-ohS" firstAttribute="leading" secondItem="eBY-xk-PtN" secondAttribute="leading" id="NAB-fb-LYh"/>
                             <constraint firstItem="umu-pl-63c" firstAttribute="centerX" secondItem="Et9-rD-ohS" secondAttribute="centerX" id="YlA-3G-X0B"/>
-                            <constraint firstItem="XAZ-uB-47B" firstAttribute="top" secondItem="CDM-9i-MpY" secondAttribute="bottom" constant="43" id="ira-N5-NeA"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="sun-CG-OWG" secondAttribute="bottom" constant="17" id="dbR-ml-WKg"/>
+                            <constraint firstItem="XAZ-uB-47B" firstAttribute="top" secondItem="CDM-9i-MpY" secondAttribute="bottom" constant="24" id="i2L-Ep-2oJ"/>
                             <constraint firstItem="Et9-rD-ohS" firstAttribute="top" secondItem="eBY-xk-PtN" secondAttribute="top" id="uLT-rW-TVW"/>
-                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="Et9-rD-ohS" secondAttribute="bottom" constant="47" id="yKL-QH-MMA"/>
+                            <constraint firstItem="CDM-9i-MpY" firstAttribute="top" secondItem="umu-pl-63c" secondAttribute="bottom" constant="66" id="zRj-jC-wza"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="V8f-If-2Sk" appends="YES" id="5Il-Cl-e8A"/>
@@ -262,6 +268,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="w" selectedImage="home" id="Gdq-aD-L5s"/>
                     <connections>
                         <outlet property="imgView" destination="umu-pl-63c" id="Pqi-7W-Ycq"/>
+                        <outlet property="indicator" destination="sun-CG-OWG" id="dq3-3U-AWR"/>
                         <outlet property="webView" destination="Et9-rD-ohS" id="TLN-JI-bFt"/>
                     </connections>
                 </viewController>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BEA8FBA1-0F46-46B5-980C-C225943B624C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ImgurApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>199764AC2AC505D88E7145F09168DE97B9052584</key>
+		<string>https://github.com/curtismj1/ImgurApp-copy.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ImgurApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>199764AC2AC505D88E7145F09168DE97B9052584</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/curtismj1/ImgurApp-copy.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>199764AC2AC505D88E7145F09168DE97B9052584</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>199764AC2AC505D88E7145F09168DE97B9052584</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ImgurApp-copy</string>
+		</dict>
+	</array>
+</dict>
+</plist>

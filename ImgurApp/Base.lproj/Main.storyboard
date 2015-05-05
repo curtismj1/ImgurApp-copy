@@ -184,7 +184,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Re-QA-gfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Bvh-99-SqB">
                     <connections>
-                        <action selector="addToFavs:" destination="cmD-OO-b48" id="c6o-Hq-nNx"/>
+                        <action selector="addToFavs:" destination="cmD-OO-b48" id="3eu-rh-4Pm"/>
                     </connections>
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="W2F-Ua-UYR">

@@ -59,7 +59,9 @@ class searchResults: UIViewController {
         }
     }
     @IBAction func addToFavs(sender: AnyObject) {
-        
+        favorites.add(images[currentIndex].link as String)
+        favorites.saveImages()
+        sendNotificationFavorite()
     }
     func nextImage() {
         if (currentIndex < images.count - 1) {

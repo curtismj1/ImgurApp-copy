@@ -65,7 +65,9 @@ class Favorites{
                 let lines : Array<String> = text!.componentsSeparatedByString("\n")
                 
                 for line in lines{
-                    images.append(line)
+                    if (line != ""){
+                        images.append(line)
+                    }
                 }
             }
 

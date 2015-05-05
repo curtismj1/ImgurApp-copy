@@ -16,10 +16,12 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     var images:Array<String> = []
     var favorites = Favorites()
     @IBOutlet weak var webView: UIWebView!
-
+    let layer = CALayer()
     
+
     var currentIndex = 0
     
+    @IBOutlet weak var imgView: UIImageView!
     func nextImage() {
         if (currentIndex < images.count) {
             currentIndex++
@@ -52,24 +54,31 @@ class ViewController: UIViewController, NSURLSessionDelegate{
     
     @IBAction func didDoubleTap(sender: UITapGestureRecognizer) {
         addToFavorites()
+        showHeart()
     }
     
     @IBAction func randomImage(sender: AnyObject) {
-        currentIndex = random() % images.count
-        var url = NSURL(string: images[currentIndex])
-        var request = NSURLRequest(URL: url!)
-        webView.loadRequest(request)
+        if images.count != 0{
+            currentIndex = random() % images.count
+            var url = NSURL(string: images[currentIndex])
+            var request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
+        }
     }
     
     func addToFavorites() {
         for image in favorites.images{
-            if (image == images[currentIndex]){
-               return
+            if(images.count > 0){
+                if (image == images[currentIndex]){
+                    return
+                }
+                favorites.add(images[currentIndex])
+                favorites.saveImages()
+                sendNotificationFavorite()
+                
             }
         }
-        favorites.add(images[currentIndex])
-        favorites.saveImages()
-        sendNotificationFavorite()
+
     }
     @IBOutlet weak var favoriteImage: UIButton!
     
@@ -111,7 +120,23 @@ class ViewController: UIViewController, NSURLSessionDelegate{
             //NSLog(item)
         }
     }
-
+    func showHeart(){
+        var x:CGFloat = 0.0
+        UIView.animateWithDuration(1.2, delay: 0.0, options: .BeginFromCurrentState,
+            animations:
+            {
+            self.imgView.hidden = false
+            self.imgView.alpha = x
+            x+=0.01
+  
+            },
+            completion: {(value: Bool) in
+        
+        })
+  
+        
+        
+    }
     func loadGallery(completion: ((AnyObject) -> Void)!){
         
         
@@ -171,7 +196,18 @@ class ViewController: UIViewController, NSURLSessionDelegate{
         view.addGestureRecognizer(doubleTapGesture)
         
         
+        //load current favorites
+        favorites.loadImagesFromFile()
+        
         //var anObserver = MyObserver(object: favorites);
+
+        
+        //Heart stuff
+        let img = UIImage(named: "heart.png")
+        imgView.image = img;
+        view.addSubview(imgView)
+        imgView.hidden = true
+        
  
         
     }
